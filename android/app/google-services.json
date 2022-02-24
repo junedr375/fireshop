@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "665372169413",
+    "project_id": "fireshop-677f5",
+    "storage_bucket": "fireshop-677f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665372169413:android:37d29896c2e960b7d28cac",
+        "android_client_info": {
+          "package_name": "com.junedr375.fireshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665372169413-3fc9mhsib2ht3q3tirt8t08058jqvllp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junedr375.fireshop",
+            "certificate_hash": "80b61fd88ffcf54497366c63057759fc48003cfb"
+          }
+        },
+        {
+          "client_id": "665372169413-3q2epsjl0kbseqpsijno1eo12r9kdld7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd9uX51RP-rtvw2b64UAzQ2uHhKcVzWLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665372169413-3q2epsjl0kbseqpsijno1eo12r9kdld7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
