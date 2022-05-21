@@ -2,7 +2,6 @@ import 'package:fireshop/core/UI/image.dart';
 import 'package:fireshop/core/utils/app_theme_data.dart';
 import 'package:fireshop/core/utils/get_of_context.dart';
 import 'package:fireshop/features/authentication/PloC/authentication_controller.dart';
-import 'package:fireshop/features/authentication/PloC/phone_otp_screen.dart';
 import 'package:fireshop/features/checkout/PLoC/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,17 +51,7 @@ class AuthenticationScreen extends StatelessWidget {
               ),
             ),
           ),
-          AuthButton(
-            onTap: () {
-              Get.to(() => PhoneOtpScreen());
-            },
-            text: 'Phone',
-            color: Colors.green,
-            leading: const Icon(
-              Icons.phone,
-              color: Colors.white,
-            ),
-          ),
+      
         ],
       ),
     );

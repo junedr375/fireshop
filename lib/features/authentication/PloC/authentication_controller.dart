@@ -18,43 +18,6 @@ class AuthController extends GetxController {
     navigateTOHomeScreen();
   }
 
-  void doSigninWithPhone() async {
-    if (formGlobalKey.currentState!.validate()) {
-      formGlobalKey.currentState!.save();
-
-      if (isOtpSent.value) {
-        currentUser = await firebaseClient.verifyOtp(
-            otpText: otpController.text.trim(), verifyID: verificationId);
-        if (currentUser != null) {
-          navigateTOHomeScreen();
-        }
-      } else {
-        final FirebaseAuth auth = FirebaseAuth.instance;
-        await auth.verifyPhoneNumber(
-            phoneNumber: "+91" + phoneController.text,
-            verificationCompleted: (phoneAuthCredential) async {},
-            verificationFailed: (verificationFailed) async {
-              Get.snackbar(
-                  'Verification Failed', verificationFailed.message ?? '');
-            },
-            codeSent: (verifyId, resendingToken) async {
-              verificationId = verifyId;
-              print(verificationId);
-              print(verifyId);
-              update();
-            },
-            codeAutoRetrievalTimeout: (verificationId) async {});
-        // await firebaseClient
-        //     .verifyPhoneNumber(phoneController.text.trim())
-        //     .then((value) {
-        //   verificationId = value;
-        // });
-        isOtpSent.value = true;
-        print('VerificationId: ' + verificationId);
-        update();
-      }
-    }
-  }
 
   void navigateTOHomeScreen() {
     Get.off(() => HomeScreen(), arguments: {'user': currentUser});

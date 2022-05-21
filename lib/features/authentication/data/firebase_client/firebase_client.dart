@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,22 +38,11 @@ class FirebaseClient {
       user = userCredential.user;
       return user;
     } catch (e) {
-      print(e.toString());
+      log(e.toString());
     }
   }
 
-  Future<String> verifyPhoneNumber(String phoneNumber) async {
-    String verificationId = '';
-
-    return verificationId;
-  }
-
-  Future<User?> verifyOtp(
-      {required String otpText, required String verifyID}) async {
-    final phoneAuthCred = PhoneAuthProvider.credential(
-        verificationId: verifyID, smsCode: otpText);
-    return await singinWithCredential(phoneAuthCred);
-  }
+ 
 
   Future<bool?> logOut() async {
     try {
