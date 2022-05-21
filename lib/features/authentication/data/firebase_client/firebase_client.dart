@@ -1,14 +1,19 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:fireshop/core/Storage/shared_preference.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 
 class FirebaseClient {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+  Future<User?> getCurrentUser() async {
+    final User? user = await auth.currentUser;
+    return user;
+  }
 
   Future<User?> signInWithGoogle({required BuildContext context}) async {
     User? user;
@@ -42,16 +47,15 @@ class FirebaseClient {
     }
   }
 
- 
-
   Future<bool?> logOut() async {
     try {
       await auth.signOut();
       await googleSignIn.signOut();
-      print('User Signout');
+      AppStorage.setBool(AppStorageKeys.isLoggedIn, false);
+      log('User Signout');
       return true;
     } catch (e) {
-      print(e.toString());
+      log(e.toString());
     }
   }
 }

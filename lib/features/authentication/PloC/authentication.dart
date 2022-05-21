@@ -15,7 +15,12 @@ class AuthenticationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = getMainAxisHeight(context);
     return Scaffold(
-      body: Column(
+      body: Obx(
+        () => authController.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -53,6 +58,7 @@ class AuthenticationScreen extends StatelessWidget {
           ),
       
         ],
+              ),
       ),
     );
   }
